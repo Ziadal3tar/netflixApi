@@ -35,7 +35,8 @@ export const signIn = asyncHandler(async (req, res, next) => {
   } else {
     let compare = bcrypt.compareSync(password, user.password, parseInt(process.env.SALTROUND))
     if (compare) {
-      let token = jwt.sign({ id: user._id, isLoggedIn: true }, process.env.tokenSignature, { expiresIn: 60 * 60 * 24 * 2 })
+      let tokenSignature='c38Sat1321'
+      let token = jwt.sign({ id: user._id, isLoggedIn: true }, tokenSignature, { expiresIn: 60 * 60 * 24 * 2 })
 
 if (token) {
   
